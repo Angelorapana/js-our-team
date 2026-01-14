@@ -43,3 +43,15 @@ const teamMembers = [
   }
 ];
 
+
+//Prova di stampa
+const persone = document.getElementById("elementi")   //Prendo dal dom creando una variabile
+
+//Avvio ciclo per prendere tutti gli elementi che mi interessano(dichiarando una nuova variabile {name, role}) = teamMembers[index] <--per ogni elemento dell'array partendo da INDEX(0)
+for (let index = 0; index < teamMembers.length; index++) {
+    const {name, role, email} = teamMembers[index];
+
+    const nuovePersone = document.createElement("li")  //CRAO un nuovo elemento nel dom associandolo ad una variabile
+    nuovePersone.textContent = `Nome: ${name}, Ruolo: ${role}, Email: ${email}`; //dico quello che vuole avere
+    persone.append(nuovePersone); //lo stampo nel dom con .append
+}
