@@ -116,11 +116,13 @@ const teamMembers = [
 
 const teamContainer = document.getElementById("team-container")
 
+
 const singleMember = teamMembers.forEach((singleMember) =>{
   const {img, name, role, email} = singleMember
   let card = document.createElement("div")
+  card.classList.add("team-members")
   card.innerHTML = ` <div class="card-image">
-      <img src="./img/${img}" alt="Photo of ${name}" />
+      <img src="${img}" alt="Photo of ${name}" />
     </div>
     <div class="card-text">
       <h3>${name}</h3>
@@ -128,5 +130,34 @@ const singleMember = teamMembers.forEach((singleMember) =>{
     </div>`
     teamContainer.append(card)
 } )
+
+//inserisco il form nel dom
+const cardUser = document.getElementById("data-users")
+let dataUser = document.createElement("div")
+dataUser.innerHTML = ` <form id="member-form">
+  <div>
+    <label for="name">Nome e cognome</label>
+    <input type="text" id="name" name="name" placeholder="Mario Rossi" required>
+  </div>
+
+  <div>
+    <label for="role">Ruolo</label>
+    <input type="text" id="role" name="role" placeholder="Front-end Developer" required>
+  </div>
+
+  <div>
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" placeholder="mario@team.com" required>
+  </div>
+
+  <div>
+    <label for="img">Immagine (URL)</label>
+    <input type="text" id="img" name="img" placeholder="img/male1.png" required>
+  </div>
+
+  <button type="submit">Aggiungi membro</button>
+</form>
+ `
+cardUser.append(dataUser)
 
 
