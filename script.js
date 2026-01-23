@@ -116,6 +116,17 @@ const teamMembers = [
 
 const teamContainer = document.getElementById("team-container")
 
-c
+const singleMember = teamMembers.forEach((singleMember) =>{
+  const {img, name, role, email} = singleMember
+  let card = document.createElement("div")
+  card.innerHTML = ` <div class="card-image">
+      <img src="./img/${img}" alt="Photo of ${name}" />
+    </div>
+    <div class="card-text">
+      <h3>${name}</h3>
+      <p>${role}</p>
+    </div>`
+    teamContainer.append(card)
+} )
 
 
