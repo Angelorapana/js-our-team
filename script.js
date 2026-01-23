@@ -160,4 +160,42 @@ dataUser.innerHTML = ` <form id="member-form">
  `
 cardUser.append(dataUser)
 
+//con querySelector recupero il form che sta DENTRO dataUser
+const form = dataUser.querySelector("form")
+
+//blocco azione "solita" di un salvataggio form
+form.addEventListener("submit", function (event) {
+  event.preventDefault()
+
+// creao l'oggetto con gli input del form
+  const newMember = { 
+  name: form.name.value, 
+  role: form.role.value, 
+  email: form.email.value, 
+  img: form.img.value 
+}
+
+//funzione che crea la card con gli input 
+function createCard(dati) {
+  const { img, name, role, email } = dati
+
+  let card = document.createElement("div")
+  card.classList.add("team-members")
+
+  card.innerHTML = `
+    <div class="card-image">
+      <img src="${img}" alt="Photo of ${name}" />
+    </div>
+    <div class="card-text">
+      <h3>${name}</h3>
+      <p>${role}</p>
+      <p>${email}</p>
+    </div>
+  `
+
+  teamContainer.append(card)
+}
+
+createCard(newMember)
+form.reset()})
 
